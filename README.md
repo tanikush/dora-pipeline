@@ -59,21 +59,21 @@ A modern, **production-ready DORA Metrics Dashboard** built with React 19 that v
 
 ## 🛠️ Technology Stack
 
-| Layer | Technology | Purpose |
-|-------|-----------|---------|
-| **Frontend** | React 19.2.5 | Component UI with hooks (useState, useEffect) |
-| | ReactDOM 19.2.5 | Client-side rendering |
-| | Create React App 5.0.1 | Build tooling & dev server |
-| | Web Vitals 2.1.4 | Performance monitoring |
-| **Backend** | AWS Lambda | Serverless API endpoints |
-| | AWS API Gateway | RESTful metrics API |
-| | AWS DynamoDB | NoSQL metrics storage |
-| **CI/CD** | GitHub Actions | Automated build & deployment |
-| | AWS S3 | Static website hosting |
-| | AWS CloudFront | CDN & SSL termination |
-| **Design** | CSS Custom Properties | Design tokens (colors, spacing, shadows) |
-| | Inter Font | Modern UI typography |
-| | CSS Grid/Flexbox | Responsive layouts |
+| Layer | Technology | Version | Purpose |
+|-------|-----------|---------|---------|
+| **Frontend** | React | 19.2.5 | Component UI with hooks |
+| | ReactDOM | 19.2.5 | Client-side rendering |
+| | Create React App | 5.0.1 | Build tooling & dev server |
+| | Web Vitals | 2.1.4 | Performance monitoring |
+| **Backend** | AWS Lambda | — | Serverless API endpoints |
+| | AWS API Gateway | — | RESTful metrics API |
+| | AWS DynamoDB | — | NoSQL metrics storage |
+| **CI/CD** | GitHub Actions | — | Automated build & deployment |
+| | AWS S3 | — | Static website hosting |
+| | AWS CloudFront | — | CDN & SSL termination |
+| **Design** | CSS Custom Properties | — | Design tokens & theming |
+| | Inter Font | — | Modern UI typography |
+| | CSS Grid/Flexbox | — | Responsive layouts |
 
 ---
 
@@ -86,7 +86,7 @@ A modern, **production-ready DORA Metrics Dashboard** built with React 19 that v
 | **Change Failure Rate** | < 5% | < 15% | ≥ 15% |
 | **Time to Restore Service** | < 1 hour | < 24 hours | ≥ 24 hours |
 
-*Benchmarks sourced from [Google's Accelerate State of DevOps Report](https://services.google.com/fh/files/misc/accelerate-state-of-devops-2021.pdf)*
+*Benchmarks from [Google's Accelerate State of DevOps Report](https://services.google.com/fh/files/misc/accelerate-state-of-devops-2021.pdf)*
 
 ---
 
@@ -94,12 +94,12 @@ A modern, **production-ready DORA Metrics Dashboard** built with React 19 that v
 
 ### Prerequisites
 
-- Node.js ≥ 16.x (recommended: 18.x or 20.x)
+- Node.js ≥ 16.x (18.x or 20.x recommended)
 - npm ≥ 7.x
 - Git
-- Modern browser (Chrome, Firefox, Safari, Edge)
+- Browser (Chrome, Firefox, Safari, Edge)
 
-### Local Development
+### Installation & Development
 
 ```bash
 # Clone repository
@@ -109,11 +109,9 @@ cd dora-ui
 # Install dependencies
 npm install
 
-# Start development server
+# Start dev server (http://localhost:3000)
 npm start
 ```
-
-App opens at **http://localhost:3000** with hot reload enabled.
 
 ---
 
@@ -121,40 +119,40 @@ App opens at **http://localhost:3000** with hot reload enabled.
 
 ### API Endpoint
 
-The frontend connects to AWS API Gateway. Default endpoint:
+Frontend connects to AWS API Gateway. Default:
 
 ```javascript
-// src/App.js line 3
+// src/App.js:3
 const API = "https://01u368r3fl.execute-api.ap-south-1.amazonaws.com";
 ```
 
-**To customize:** Create `.env.local` file:
+**Custom endpoint:** Create `.env.local`:
 
 ```env
 REACT_APP_API_URL=https://your-api-endpoint.com
 ```
 
-Then update `App.js`:
+Update `App.js`:
 
 ```javascript
 const API = process.env.REACT_APP_API_URL;
 ```
 
-### Environment Files
+### Environment Variables
 
-| File | Purpose |
-|------|---------|
+| File | Usage |
+|------|-------|
 | `.env.local` | Local overrides (gitignored) |
 | `.env.development` | Development environment |
 | `.env.production` | Production environment |
 
 ---
 
-## 🔌 API Reference
+## 🔌 API Specification
 
 ### GET `/metrics`
 
-Fetches current DORA metrics and recent deployments.
+Returns current DORA metrics + deployment history.
 
 **Response:**
 ```json
@@ -167,7 +165,7 @@ Fetches current DORA metrics and recent deployments.
   },
   "deployments": [
     {
-      "deploymentId": "uuid-v4",
+      "deploymentId": "uuid",
       "repo": "frontend-app",
       "status": "success",
       "leadTimeMinutes": 30,
@@ -179,9 +177,9 @@ Fetches current DORA metrics and recent deployments.
 
 ### POST `/metrics`
 
-Records a new deployment event.
+Creates new deployment record.
 
-**Request Body:**
+**Body:**
 ```json
 {
   "repo": "backend-api",
@@ -192,47 +190,34 @@ Records a new deployment event.
 
 ---
 
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```
 dora-ui/
 ├── src/
-│   ├── App.js              # Main dashboard component (80 lines)
-│   ├── App.css             # Legacy styles (unused)
+│   ├── App.js              # Dashboard component
 │   ├── index.js            # React entry point
-│   ├── index.css           # Global CSS + design system
-│   ├── App.test.js         # Unit tests (Jest + RTL)
-│   ├── reportWebVitals.js  # Performance monitoring
+│   ├── index.css           # Global styles + design system
+│   ├── App.test.js         # Unit tests
+│   ├── reportWebVitals.js  # Perf monitoring
 │   └── setupTests.js       # Test config
 ├── public/
-│   ├── index.html          # HTML template with meta tags
-│   ├── manifest.json       # PWA configuration
-│   ├── favicon.ico         # Favicon
-│   └── logo*.png           # PWA icons
-├── screenshots/            # Project screenshots (git-tracked)
-│   ├── dashboard.png
-│   ├── metics.png
-│   ├── DORA.png
-│   ├── Dynamodb.png
-│   ├── lambda.png
-│   ├── github action.png
-│   └── s3 project dashboard.png
+│   ├── index.html          # HTML template
+│   └── manifest.json       # PWA manifest
+├── screenshots/            # Project documentation images
 ├── docs/
-│   └── screenshots/        # Screenshot capture guide
-│       └── README.md
-├── lambda/                 # Backend Lambda code (separate repo)
+│   └── screenshots/        # Capture guide
+├── lambda/                 # Backend Lambda (separate deployment)
 │   └── index.mjs
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml      # CI/CD pipeline
-├── build/                  # Production build (gitignored)
-├── node_modules/           # Dependencies (gitignored)
-├── package.json            # Dependencies & scripts
-├── package-lock.json       # Locked dependency tree
-├── README.md               # This file
-├── CONTRIBUTING.md         # Contribution guidelines
-├── LICENSE                 # MIT License
-└── .gitignore              # Git ignore rules
+├── package.json
+├── package-lock.json
+├── README.md
+├── CONTRIBUTING.md
+├── LICENSE
+└── .gitignore
 ```
 
 ---
@@ -240,75 +225,63 @@ dora-ui/
 ## 🧪 Testing
 
 ```bash
-# Run tests in watch mode
+# Interactive watch mode
 npm test
 
-# Run tests once (CI mode)
+# Single run (CI)
 CI=true npm test
 
-# Test with coverage
+# With coverage report
 npm test -- --coverage
 ```
 
 ---
 
-## 🏗️ Build & Deploy
-
-### Production Build
+## 🏗️ Build & Production
 
 ```bash
-# Create optimized production bundle
+# Create optimized build
 npm run build
 
-# Output: /build directory (ready for deployment)
-# - Static assets (JS, CSS, images)
-# - Index.html with hashed filenames
-# - Gzipped compression ready
+# Output: /build (static files for deployment)
 ```
 
-### Deploy to AWS (Automatic)
+### Deployment Workflow
 
-Push to `main` branch triggers GitHub Actions:
+1. **Push to `main`** → Triggers GitHub Actions
+2. **Lambda update** — Deploys `lambda/index.mjs`
+3. **React build** — Runs `npm install && npm run build`
+4. **S3 upload** — Syncs `build/` to S3 bucket
+5. **CloudFront invalidation** — (optional) clears CDN cache
 
-1. **Lambda Deployment** — Updates function code from `lambda/` folder
-2. **React Build** — Runs `npm install && npm run build`
-3. **S3 Sync** — Uploads `build/` folder to S3 bucket
-4. **CloudFront Invalidation** — (if configured) clears CDN cache
-
-**Manual deployment:**
+### Manual Deploy
 
 ```bash
-# Build locally
 npm run build
-
-# Upload to S3
-aws s3 sync build/ s3://your-bucket-name --delete
-
-# Invalidate CloudFront (optional)
-aws cloudfront create-invalidation --distribution-id XYZ --paths "/*"
+aws s3 sync build/ s3://your-bucket --delete
 ```
 
 ---
 
-## 🎨 Customization
+## 🎨 Customization Guide
 
-### Change Color Palette
+### Color Scheme
 
-Edit CSS variables in `src/index.css`:
+Edit CSS variables in `src/index.css:6-33`:
 
 ```css
 :root {
-  --color-primary: #2563eb;      /* Brand blue */
-  --status-elite: #10b981;       /* Success green */
-  --status-high: #3b82f6;        /* Info blue */
-  --status-medium: #f59e0b;      /* Warning orange */
-  --status-low: #ef4444;         /* Error red */
+  --color-primary: #2563eb;    /* Primary brand */
+  --status-elite: #10b981;     /* Elite performance */
+  --status-high: #3b82f6;      /* High performance */
+  --status-medium: #f59e0b;    /* Medium performance */
+  --status-low: #ef4444;       /* Low performance */
 }
 ```
 
-### Adjust DORA Thresholds
+### DORA Thresholds
 
-Modify `getStatus()` function in `src/App.js:37-42`:
+Modify `getStatus()` in `src/App.js:37-42`:
 
 ```javascript
 const getStatus = (value, metric) => {
@@ -323,36 +296,30 @@ const getStatus = (value, metric) => {
 
 ## 🤝 Contributing
 
-We welcome contributions! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
-### Quick Start
+See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 ```bash
-# Fork the repo
-# Clone your fork
-git clone https://github.com/YOUR-USERNAME/dora-ui.git
+# Fork → Clone → Branch
+git checkout -b feature/your-feature
 
-# Create feature branch
-git checkout -b feature/amazing-feature
+# Commit (Conventional Commits)
+git commit -m "feat(metrics): add threshold config"
 
-# Commit changes (follow Conventional Commits)
-git commit -m "feat(metrics): add lead time threshold slider"
-
-# Push and open PR
-git push origin feature/amazing-feature"
+# Push & PR
+git push origin feature/your-feature
 ```
 
 ---
 
 ## 📄 License
 
-Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](LICENSE) file.
 
 ---
 
 ## 🙋 Support
 
-- **Issues & Bugs**: [GitHub Issues](https://github.com/tanikush/dora-ui/issues)
+- **Issues**: [GitHub Issues](https://github.com/tanikush/dora-ui/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/tanikush/dora-ui/discussions)
 - **Email**: tanikush@gmail.com
 
@@ -360,22 +327,22 @@ Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
 
 ## 🙏 Acknowledgments
 
-- **DORA Metrics** — Google's DevOps Research & Assessment team
-- **Create React App** — Facebook's React build tooling
-- **AWS Lambda & API Gateway** — Serverless backend infrastructure
-- **GitHub Actions** — Continuous integration & deployment
+- **DORA Team** — Google's DevOps Research & Assessment
+- **React Team** — Meta's UI library
+- **AWS Serverless** — Lambda, API Gateway, DynamoDB
+- **GitHub Actions** — CI/CD automation
 
 ---
 
-## 📚 Learn More
+## 📚 Resources
 
-- [DORA Metrics Guide](https://cloud.google.com/devops/learn/dora-metrics)
+- [DORA Metrics Explained](https://cloud.google.com/devops/learn/dora-metrics)
 - [Accelerate Book](https://itrevolution.com/book/accelerate/)
-- [React Documentation](https://react.dev/)
-- [AWS Serverless](https://aws.amazon.com/serverless/)
+- [React Docs](https://react.dev/)
+- [AWS Lambda](https://aws.amazon.com/lambda/)
 
 ---
 
-**⭐ If this project helps you, please give it a star!**
+**⭐ Star this repo if it's useful!**
 
-*Last updated: April 2026 | Built with ❤️ using React & AWS*
+*April 2026 | React 19 • AWS • CI/CD*
