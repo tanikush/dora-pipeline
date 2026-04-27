@@ -73,7 +73,7 @@ A modern, responsive **DORA Metrics Dashboard** built with React that helps engi
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/dora-ui.git
+git clone https://github.com/tanikush/dora-ui.git
 cd dora-ui
 
 # Install dependencies
