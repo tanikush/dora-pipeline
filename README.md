@@ -8,36 +8,39 @@ A modern, **production-ready DORA Metrics Dashboard** built with React 19 that v
 
 ---
 
-## 📸 Application Screenshots
+## 📸 Architecture Daigram
+---
+![Recent Deployments](./screenshots/DORA.png)
+*Live deployment history showing last 5 events with status indicators and timing*
+---
 
+## 📸 Application Screenshots
+---
 ### 🎯 Dashboard Overview
 ![Dashboard](./screenshots/dashboard.png)
 *Main dashboard displaying real-time DORA metrics with color-coded performance badges (Elite/High/Medium)*
-
+---
 ### 📝 Record Deployment
 ![Record Deployment](./screenshots/metics.png)
 *Interactive form to capture deployment events — repo name, success/failure status, and lead time slider*
 
-### 📋 Recent Deployments
-![Recent Deployments](./screenshots/DORA.png)
-*Live deployment history showing last 5 events with status indicators and timing*
-
 ---
 
-## 🏗️ Infrastructure & Deployment
 
+## 🏗️ Infrastructure & Deployment
+---
 ### 🔵 AWS DynamoDB
 ![DynamoDB Table](./screenshots/Dynamodb.png)
 *DynamoDB table storing deployment metrics and historical data with timestamp indexing*
-
+---
 ### ⚡ AWS Lambda Function
 ![Lambda Function](./screenshots/lambda.png)
 *Serverless Lambda function handling metric calculations and data persistence*
-
+---
 ### 🔄 GitHub Actions CI/CD
 ![GitHub Actions](./screenshots/github%20action.png)
 *Automated deployment pipeline — builds React app and deploys to AWS S3 & Lambda*
-
+---
 ### 📦 AWS S3 Deployment
 ![S3 Dashboard](./screenshots/s3%20project%20dashboard.png)
 *Static hosting on S3 with CloudFront CDN for global availability*
@@ -263,21 +266,6 @@ aws s3 sync build/ s3://your-bucket --delete
 
 ---
 
-## 🎨 Customization Guide
-
-### Color Scheme
-
-Edit CSS variables in `src/index.css:6-33`:
-
-```css
-:root {
-  --color-primary: #2563eb;    /* Primary brand */
-  --status-elite: #10b981;     /* Elite performance */
-  --status-high: #3b82f6;      /* High performance */
-  --status-medium: #f59e0b;    /* Medium performance */
-  --status-low: #ef4444;       /* Low performance */
-}
-```
 
 ### DORA Thresholds
 
@@ -334,15 +322,7 @@ MIT License — see [LICENSE](LICENSE) file.
 
 ---
 
-## 📚 Resources
-
-- [DORA Metrics Explained](https://cloud.google.com/devops/learn/dora-metrics)
-- [Accelerate Book](https://itrevolution.com/book/accelerate/)
-- [React Docs](https://react.dev/)
-- [AWS Lambda](https://aws.amazon.com/lambda/)
-
----
 
 **⭐ Star this repo if it's useful!**
-
+By Tanisha
 *April 2026 | React 19 • AWS • CI/CD*
