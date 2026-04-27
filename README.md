@@ -1,4 +1,3 @@
-<img width="1919" height="1071" alt="Screenshot 2026-04-27 192516" src="https://github.com/user-attachments/assets/f7f4cc8c-e534-4e04-b334-cacec7f7b87c" /># 🚀 DORA Metrics Dashboard
 
 [![React](https://img.shields.io/badge/React-19.2.5-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -9,14 +8,6 @@ A modern, responsive **DORA Metrics Dashboard** built with React that helps engi
 ---
 
 ## 📸 Screenshots
-<img width="1774" height="719" alt="DORA" src="https://github.com/user-attachments/assets/13e0c1d3-fcc1-4d25-b37d-9567c31d533c" />
-
-<img width="1919" height="1071" alt="Screenshot 2026-04-27 192516" src="https://github.com/user-attachments/assets/6ab6816c-2fdf-41c8-b2ba-08bc94e150d5" />
-<img width="1907" height="669" alt="Screenshot 2026-04-27 190740" src="https://github.com/user-attachments/assets/6f831b6f-8160-4a62-b27d-0bcdb425dcd2" />
-<img width="1919" height="1013" alt="Screenshot 2026-04-27 195535" src="https://github.com/user-attachments/assets/3d09b5ae-cb95-4860-9346-f072b52f7b3d" />
-<img width="1919" height="1015" alt="Screenshot 2026-04-27 190101" src="https://github.com/user-attachments/assets/061bda64-fc31-497f-b946-44a202daf774" />
-<img width="1905" height="1021" alt="Screenshot 2026-04-27 190434" src="https://github.com/user-attachments/assets/ccb98ec8-bc14-45cd-9961-388dbd83c186" />
-<img width="1919" height="1017" alt="Screenshot 2026-04-27 190550" src="https://github.com/user-attachments/assets/18820e46-dbb6-4a02-b93d-774c7c59e298" />
 
 
 ---
