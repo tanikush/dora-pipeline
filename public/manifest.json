@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "DORA Dashboard",
+  "name": "DORA Metrics Dashboard — DevOps Engineering Metrics Tracker",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,16 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#2563eb",
+  "background_color": "#f8fafc",
+  "description": "Track and visualize DORA metrics — Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Success Rate.",
+  "categories": ["productivity", "developer-tools", "business"],
+  "screenshots": [
+    {
+      "src": "https://via.placeholder.com/1280x720/2563eb/ffffff?text=DORA+Dashboard",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
 }
