@@ -122,28 +122,7 @@ npm start
 
 ---
 
-## ⚙️ Configuration
 
-### API Endpoint
-
-Frontend connects to AWS API Gateway. Default:
-
-```javascript
-// src/App.js:3
-const API = "https://01u368r3fl.execute-api.ap-south-1.amazonaws.com";
-```
-
-**Custom endpoint:** Create `.env.local`:
-
-```env
-REACT_APP_API_URL=https://your-api-endpoint.com
-```
-
-Update `App.js`:
-
-```javascript
-const API = process.env.REACT_APP_API_URL;
-```
 
 ### Environment Variables
 
