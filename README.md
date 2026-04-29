@@ -6,6 +6,10 @@
 
 A modern, **production-ready DORA Metrics Dashboard** built with React 19 that visualizes DevOps Research & Assessment metrics in real-time. Track Deployment Frequency, Lead Time, Change Failure Rate, and Success Rate with an elegant, responsive UI connected to AWS backend services.
 
+⚠️ Note:  
+AWS resources have been removed after testing to avoid ongoing costs.  
+Current GitHub Actions may show failed status due to inactive services.
+
 ---
 
 ## 📸 Architecture Daigram
